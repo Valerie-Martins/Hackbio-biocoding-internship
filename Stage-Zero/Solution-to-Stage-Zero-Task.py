@@ -38,5 +38,9 @@ uwidia_info = {
 print(
 f"The information of members of the serine group three are:\n\n 1. Samuel:{samuel_info}\n\n 2. Valerie: {valerie_info}\n\n 3. Zainab: {zainab_info}\n\n 4. Uwidia: {uwidia_info}\n\n")
 
-#Our linkedIn post link: 
-#Our Git hub link:
+#Our linkedIn submission link:
+#https://www.linkedin.com/posts/valerie-martins-7018a8b3_hackbiointernship-python-datastructures-activity-7294076523697860608-ze4c?utm_source=share&utm_medium=member_desktop
+
+#Our Github Repositories:
+#https://github.com/Valerie-Martins/Hackbio-biocoding-internship/blob/main/Stage-Zero/Solution-to-Stage-Zero-Task.py
+#https://github.com/SamuelBadekale/hackbio-biocoding-internship/tree/main/Stage%20zero%20folder
