@@ -37,3 +37,6 @@ uwidia_info = {
 }
 print(
 f"The information of members of the serine group three are:\n\n 1. Samuel:{samuel_info}\n\n 2. Valerie: {valerie_info}\n\n 3. Zainab: {zainab_info}\n\n 4. Uwidia: {uwidia_info}\n\n")
+
+#Our linkedIn post link: 
+#Our Git hub link:
