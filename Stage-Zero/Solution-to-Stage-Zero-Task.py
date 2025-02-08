@@ -1,3 +1,4 @@
+#Team Super Serine
 samuel_info = {
     "Name": "Samuel Badekale",
     "Slack Username": "SamuelBadekale",
@@ -25,5 +26,14 @@ zainab_info = {
     "Discipline": "Biochemistry",
     "Preferred programming language": "R"
 }
+uwidia_info = {
+    "Name": "Uwidia Osalodion Emmanuel",
+    "Slack Username": "uwidia",
+    "Email": "uwidiaosalodion@gmail.com",
+    "Hobby": "Reading and taking walks",
+    "Country": "Nigeria",
+    "Discipline": "Medical Biochemistry",
+    "Preferred programming language": "Python"
+}
 print(
-f"The information of members of the serine group three are:\n\n 1. Samuel:{samuel_info}\n\n 2. Valerie: {valerie_info}\n\n 3. Zainab: {zainab_info}\n\n")
+f"The information of members of the serine group three are:\n\n 1. Samuel:{samuel_info}\n\n 2. Valerie: {valerie_info}\n\n 3. Zainab: {zainab_info}\n\n 4. Uwidia: {uwidia_info}\n\n")
