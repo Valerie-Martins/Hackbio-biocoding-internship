@@ -25,15 +25,6 @@ zainab_info = {
     "Discipline": "Biochemistry",
     "Preferred programming language": "R"
 }
-uwidia_info = {
-    "Name": "Uwidia Osalodion Emmanuel",
-    "Slack Username": "uwidia",
-    "Email": "uwidiaosalodion@gmail.com",
-    "Hobby": "Reading and taking walks",
-    "Country": "Nigeria",
-    "Discipline": "Medical Biochemistry",
-    "Preferred programming language": "Python"
-  }
 print(f"Serine Group Three members are:")
 print(f"1.  Name: {samuel_info["Name"]}")
 print(f"    Slack Username: {samuel_info["Slack Username"]}")
@@ -58,11 +49,3 @@ print(f"    Hobby: {zainab_info["Hobby"]}")
 print(f"    Country: {zainab_info["Country"]}")
 print(f"    Discipline: {zainab_info["Discipline"]}")
 print(f"    Preferred Programming Language: {zainab_info["Preferred programming language"]}")
-print()
-print(f"3.  Name: {uwidia_info["Name"]}")
-print(f"    Slack Username: {uwidia_info["Slack Username"]}")
-print(f"    Email: {uwidia_info["Email"]}")
-print(f"    Hobby: {uwidia_info["Hobby"]}")
-print(f"    Country: {uwidia_info["Country"]}")
-print(f"    Discipline: {uwidia_info["Discipline"]}")
-print(f"    Preferred Programming Language: {uwidia_info["Preferred programming language"]}")
