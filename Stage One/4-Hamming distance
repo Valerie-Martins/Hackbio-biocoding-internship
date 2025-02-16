@@ -5,7 +5,10 @@ def pad_strings(str1, str2):
     str2 = str2.ljust(max_length, "_")
     return str1, str2
 def calculate_hamming(str1, str2):
-    distance = sum(1 for a, b in zip(str1, str2) if a != b)
+    distance = 0
+    for a, b in zip(str1, str2):
+        if a != b:
+            distance += 1
     return distance
 def print_comparison(str1, str2):
     print("Comparing:")
@@ -18,4 +21,4 @@ def hamming_distance(str1, str2):
     distance = calculate_hamming(str1, str2)
     print(f"Hamming Distance: {distance}")
     return distance
-hamming_distance("Valerie", "iamveemartins")
+hamming_distance("Valerie", "veemartins")
