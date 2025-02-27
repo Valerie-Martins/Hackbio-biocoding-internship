@@ -1,95 +1,59 @@
 #Task 2.1_R
-# Download dataset
-url <- "https://raw.githubusercontent.com/HackBio-Internship/2025_project_collection/refs/heads/main/Python/Dataset/mcgc.tsv"
-#Read dataset
-OD600 <- read.delim(url, header = TRUE)
-#check structure and dimensions of the dataset
-str(OD600)
-dim(OD600)
-head(OD600)
-
-#Check If Any Missing Values Exist
-any(is.na(OD600))
-
-#Find mean OD600 Values for each strain technical replicates into new columns
-OD600$S1R1WT <- rowMeans(OD600[, c("A1", "B1", "C1")], na.rm = TRUE) # Select the columns specific to Strain1Rep1 Wild Type
-OD600$S1R1MT <- rowMeans(OD600[, c("A2", "B2", "C2")], na.rm = TRUE) # Select the columns specific to Strain1Rep1 Mutant Type
-OD600$S1R2WT <- rowMeans(OD600[, c("A3", "B3", "C3")], na.rm = TRUE) # Select the columns specific to Strain1Rep2 Wild Type
-OD600$S1R2MT <- rowMeans(OD600[, c("A4", "B4", "C4")], na.rm = TRUE) # Select the columns specific to Strain1Rep2 Mutant Type
-OD600$S2R1WT <- rowMeans(OD600[, c("A5", "B5", "C5")], na.rm = TRUE) # Select the columns specific to Strain2Rep1 Wild Type
-OD600$S2R1MT <- rowMeans(OD600[, c("A6", "B6", "C6")], na.rm = TRUE) # Select the columns specific to Strain2Rep1 Mutant Type
-OD600$S2R2WT <- rowMeans(OD600[, c("A7", "B7", "C7")], na.rm = TRUE) # Select the columns specific to Strain2Rep2 Wild Type
-OD600$S2R2MT <- rowMeans(OD600[, c("A8", "B8", "C8")], na.rm = TRUE) # Select the columns specific to Strain2Rep2 Mutant Type
-OD600$S3R1WT <- rowMeans(OD600[, c("A9", "B9", "C9")], na.rm = TRUE) # Select the columns specific to Strain3Rep1 wild Type
-OD600$S3R1MT <- rowMeans(OD600[, c("A10", "B10", "C10")], na.rm = TRUE) # Select the columns specific to Strain3Rep1 Mutant Type
-OD600$S3R2WT <- rowMeans(OD600[, c("A11", "B11", "C11")], na.rm = TRUE) # Select the columns specific to Strain3Rep2 wild Type
-OD600$S3R2MT <- rowMeans(OD600[, c("A12", "B12", "C12")], na.rm = TRUE) # Select the columns specific to Strain3Rep2 Mutant Type
-
-#Plot OD600 vs time
+# Load necessary libraries
 library(ggplot2)
-
-#Strain1Rep1
-Strain1Rep1 <- data.frame(x = OD600$time, y1 = OD600$S1R1MT, y2 = OD600$S1R1WT)
-
-# Create the plot
-ggplot(Strain1Rep1, aes(x = x)) +  # x is already defined
-  geom_line(aes(y = y1, color = "Knock out/Mutant")) +
-  geom_line(aes(y = y2, color = "Knock in/Wild Type")) +
-  scale_color_manual(values = c("Knock out/Mutant" = "blue", "Knock in/Wild Type" = "red")) +
-  labs(title = "OD600 vs. Time (Strain 1 Rep 1)", x = "Time", y = "OD600") + # More specific labels
-  theme_bw()
-
-#Strain1Rep2
-Strain1Rep2 <- data.frame(x = OD600$time, y1 = OD600$S1R2MT, y2 = OD600$S1R2WT)
-
-# Create the plot
-ggplot(Strain1Rep2, aes(x = x)) +  # x is already defined
-  geom_line(aes(y = y1, color = "Knock out/Mutant")) +
-  geom_line(aes(y = y2, color = "Knock in/Wild Type")) +
-  scale_color_manual(values = c("Knock out/Mutant" = "blue", "Knock in/Wild Type" = "red")) +
-  labs(title = "OD600 vs. Time (Strain 1 Rep 2)", x = "Time", y = "OD600") + # More specific labels
-  theme_bw()
-
-#Strain2Rep1
-Strain2Rep1 <- data.frame(x = OD600$time, y1 = OD600$S2R1MT, y2 = OD600$S2R1WT)
-
-# Create the plot
-ggplot(Strain2Rep1, aes(x = x)) +  # x is already defined
-  geom_line(aes(y = y1, color = "Knock out/Mutant")) +
-  geom_line(aes(y = y2, color = "Knock in/Wild Type")) +
-  scale_color_manual(values = c("Knock out/Mutant" = "blue", "Knock in/Wild Type" = "red")) +
-  labs(title = "OD600 vs. Time (Strain 2 Rep 1)", x = "Time", y = "OD600") + # More specific labels
-  theme_bw()
-
-#Strain2Rep2
-Strain2Rep2 <- data.frame(x = OD600$time, y1 = OD600$S2R2MT, y2 = OD600$S2R2WT)
-
-# Create the plot
-ggplot(Strain2Rep2, aes(x = x)) +  # x is already defined
-  geom_line(aes(y = y1, color = "Knock out/Mutant")) +
-  geom_line(aes(y = y2, color = "Knock in/Wild Type")) +
-  scale_color_manual(values = c("Knock out/Mutant" = "blue", "Knock in/Wild Type" = "red")) +
-  labs(title = "OD600 vs. Time (Strain 2 Rep 2)", x = "Time", y = "OD600") + # More specific labels
-  theme_bw()
-
-#Strain3Rep1
-Strain3Rep1 <- data.frame(x = OD600$time, y1 = OD600$S3R1MT, y2 = OD600$S3R1WT)
-
-# Create the plot
-ggplot(Strain3Rep1, aes(x = x)) +  # x is already defined
-  geom_line(aes(y = y1, color = "Knock out/Mutant")) +
-  geom_line(aes(y = y2, color = "Knock in/Wild Type")) +
-  scale_color_manual(values = c("Knock out/Mutant" = "blue", "Knock in/Wild Type" = "red")) +
-  labs(title = "OD600 vs. Time (Strain 3 Rep 1)", x = "Time", y = "OD600") + # More specific labels
-  theme_bw()
-
-#Strain3Rep2
-Strain3Rep2 <- data.frame(x = OD600$time, y1 = OD600$S3R2MT, y2 = OD600$S3R2WT)
-
-# Create the plot
-ggplot(Strain3Rep2, aes(x = x)) +  # x is already defined
-  geom_line(aes(y = y1, color = "Knock out/Mutant")) +
-  geom_line(aes(y = y2, color = "Knock in/Wild Type")) +
-  scale_color_manual(values = c("Knock out/Mutant" = "blue", "Knock in/Wild Type" = "red")) +
-  labs(title = "OD600 vs. Time (Strain 3 Rep 2)", x = "Time", y = "OD600") + # More specific labels
-  theme_bw()
+library(dplyr)
+library(tidyr)
+# Read the data
+data <- read.table("microbiology.txt", header = TRUE, sep = "\t")
+# Read the strain description
+strain_description <- read.table("microbiology description.txt", header = TRUE, sep = "\t")
+# Reshape the strain description into long format
+strain_description_long <- strain_description %>%
+  pivot_longer(cols = -Strain, names_to = "Type", values_to = "Well")
+# Add strain and type information to the main data
+data_long <- data %>%
+  pivot_longer(cols = -time, names_to = "Well", values_to = "OD600") %>%
+  left_join(strain_description_long, by = "Well") %>%
+  separate(Strain, into = c("Strain", "Replicate"), sep = "_") %>%
+  mutate(Type = ifelse(Type == "WT", "Knock-in (+)", "Knock-out (-)"))
+# Average of replicates for each strain and type
+data_avg <- data_long %>%
+  group_by(Strain, Type, time) %>%
+  summarize(OD600_avg = mean(OD600, na.rm = TRUE), .groups = 'drop')
+# Plot averaged growth curves for each strain, with knock-ins and knock-outs together
+ggplot(data_avg, aes(x = time, y = OD600_avg, color = Type, group = interaction(Strain, Type))) +
+  geom_line(linewidth = 1, alpha = 0.8) +  # Use `linewidth` instead of `size`
+  facet_wrap(~Strain, scales = "free_y") +
+  labs(title = "Averaged Growth Curves of OD600 vs Time for Different Strains",
+       x = "Time (minutes)",
+       y = "OD600 (Averaged)",
+       color = "Strain Type") +
+  theme_minimal()
+# make carrying capacity 85% of max OD600
+carrying_capacity_threshold <- max(data_avg$OD600_avg, na.rm = TRUE) * 0.80
+# Time to reach carrying capacity for each strain and type
+carrying_times <- data_avg %>%
+  group_by(Strain, Type) %>%
+  filter(OD600_avg >= carrying_capacity_threshold) %>%
+  summarize(Time_to_Carrying_Capacity = min(time), .groups = 'drop')
+# Scatterplot of time to reach carrying capacity
+ggplot(carrying_times, aes(x = Strain, y = Time_to_Carrying_Capacity, color = Type)) +
+  geom_jitter(width = 0.2, alpha = 0.6) +
+  labs(title = "Time to Reach Carrying Capacity (Averaged)",
+       x = "Strain",
+       y = "Time to Reach Carrying Capacity (minutes)",
+       color = "Strain Type") +
+  theme_minimal()
+# Box plot for carrying capacity times
+ggplot(carrying_times, aes(x = Type, y = Time_to_Carrying_Capacity, fill = Type)) +
+  geom_boxplot(alpha = 0.6) +
+  labs(title = "Comparison of Time to Carrying Capacity (Averaged)",
+       x = "Strain Type",
+       y = "Time to Reach Carrying Capacity (minutes)") +
+  theme_minimal()
+# Statistical test (t-test) to check if there is a significant difference
+t_test_result <- t.test(Time_to_Carrying_Capacity ~ Type, data = carrying_times)
+print(t_test_result)
+# Observations:
+# p-value < 0.05 indicates a significant difference in growth between knock-out and knock-in strains.
+# Boxplots and scatterplots provide visual evidence of distribution differences.
